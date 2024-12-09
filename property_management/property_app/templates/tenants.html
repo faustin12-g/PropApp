@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container my-5">
+    <!-- Responsive Row -->
+    <div class="row g-4">
+        {% for tenant in tenants %}
+        <!-- Responsive Columns -->
+        <div class="col-12 col-md-4 col-lg-3">
+            <!-- Property Card -->
+            <div class="card">
+                <img src="{{ property.image.url|default:'https://via.placeholder.com/300x200' }}" 
+                     class="card-img-top" 
+                     alt="tenat profile Image" 
+                     style="height: 200px; object-fit: cover;">
+                <div class="card-body d-flex flex-column">
+                    <!-- Property Name -->
+                    <h5 class="card-title">{{ tenant.name }}</h5>
+                    <!-- Property Details -->
+                    <p class="card-text mb-3">
+                        <strong>Email:</strong> {{ tenant.email }} <br>
+                        <strong>Phone:</strong> {{ tenant.phone_number }}
+                    </p>
+                    
+                    <div class="d-flex">
+                        <a href="{}" class="btn btn-primary mt-auto w-50">
+                            About
+                        </a>
+                        <a href="" class="btn btn-secondary mt-auto w-50">Message</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}
